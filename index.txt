@@ -1,1 +1,3 @@
-This is my first Project 
+This is my first Jenkins pipeline project.
+
+The job validates a Linux shell script and archives this file as a build artifact.
