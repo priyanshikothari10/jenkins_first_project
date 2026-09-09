@@ -3,19 +3,19 @@ pipeline
     agent any
     stages
     {
-        stages('build)
+        stage('build')
         {
             steps{
                 echo "this is build stage"
             }
         }
-        stages('test)
+        stage('test)
         {
             steps{
                 echo "this is test stage"
             }
         }
-        stages('deploy)
+        stage('deploy)
         {
             steps{
                 echo "this is deploy stage"
