@@ -16,11 +16,37 @@ pipeline
             }
             post 
             {
-  success
-   {
-     archiveArtifacts: '**/target/*.war'
+  stage('Archive') {
+    steps {
+        archiveArtifacts artifacts: '**/target/*.war'
     }
+}
             }
         }
+    }
+}pipeline {
+
+    agent {
+        label 'DevServer'
+    }
+
+    tools {
+        maven 'My_maven'
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.war'
+            }
+        }
+
     }
 }
